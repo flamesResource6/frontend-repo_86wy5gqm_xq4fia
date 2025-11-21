@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import SectionGrid from './SectionGrid'
 import { Loader2, Send, Trash2, Info, Copy } from 'lucide-react'
 
@@ -78,7 +78,18 @@ export default function Contact() {
       </form>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full px-4 py-2 text-sm backdrop-blur-md border "+(toast.type==='error'? 'border-red-500/40 text-red-200 bg-red-500/10' : toast.type==='success'? 'border-green-500/40 text-green-200 bg-green-500/10' : 'border-white/20 text-white bg-white/10')}>{toast.text}</div>
+        <div
+          className={
+            'fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full px-4 py-2 text-sm backdrop-blur-md border ' +
+            (toast.type === 'error'
+              ? 'border-red-500/40 text-red-200 bg-red-500/10'
+              : toast.type === 'success'
+                ? 'border-green-500/40 text-green-200 bg-green-500/10'
+                : 'border-white/20 text-white bg-white/10')
+          }
+        >
+          {toast.text}
+        </div>
       )}
     </SectionGrid>
   )
